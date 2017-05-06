@@ -1,8 +1,9 @@
 # WhenHub
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/whenhub`. To experiment with that code, run `bin/console` for an interactive prompt.
+This is a gem for interacting with [the WhenHub API](https://developer.whenhub.com/).
 
-TODO: Delete this and the text above, and describe your gem
+> WhenHub lets you transform time-ordered information such as a timeline or schedule into a beautiful, interactive, embeddable Whencast that entertains, educates, and provides chronological context.
+
 
 ## Installation
 
