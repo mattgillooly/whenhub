@@ -1,5 +1,5 @@
 require "whenhub/version"
 
-module Whenhub
+module WhenHub
   # Your code goes here...
 end

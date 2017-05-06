@@ -1,8 +1,8 @@
 require "spec_helper"
 
-RSpec.describe Whenhub do
+RSpec.describe WhenHub do
   it "has a version number" do
-    expect(Whenhub::VERSION).not_to be nil
+    expect(WhenHub::VERSION).not_to be nil
   end
 
   it "does something useful" do

@@ -5,7 +5,7 @@ require 'whenhub/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "whenhub"
-  spec.version       = Whenhub::VERSION
+  spec.version       = WhenHub::VERSION
   spec.authors       = ["Matt Gillooly"]
   spec.email         = ["git@mattgillooly.com"]
 
