@@ -23,7 +23,85 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+The gem uses a client model to query against the API. You create and configure a client with your access token.
+(Note: You can find your access token by visiting your [WhenHub account page](https://studio.whenhub.com/account).)
+
+```
+require 'whenhub'
+
+client = WhenHub::Client.new(access_token: YOUR_ACCESS_TOKEN)
+```
+
+After creating the client you're able to make requests to any of the WhenHub APIs.
+
+
+### [My User Information](https://developer.whenhub.com/v1.0/reference#users-me)
+
+```
+user = client.me
+```
+
+### [My Schedules](https://developer.whenhub.com/v1.0/reference#usersmeschedules)
+
+```
+schedules = client.schedules.all
+```
+
+### [Schedule with Events](https://developer.whenhub.com/v1.0/reference#usersmeschedulesscheduleidfilterincludeevents)
+
+```
+schedule = client.schedules.find(schedule_id)
+```
+
+### [Schedules with Events & Media](https://developer.whenhub.com/v1.0/reference#schedule-with-events-and-media)
+
+```
+schedule = client.schedules.find(schedule_id, media: true)
+```
+
+### [Create a new schedule](https://developer.whenhub.com/v1.0/reference#create-a-new-schedule)
+
+```
+schedule = client.schedules.create
+```
+
+### [Create a new event](https://developer.whenhub.com/v1.0/reference#create-a-new-event)
+
+```
+event = schedule.events.create
+```
+
+### [Update an event](https://developer.whenhub.com/v1.0/reference#update-an-event)
+
+```
+event.name = 'My Event'
+event.save
+```
+
+### [Remove an event](https://developer.whenhub.com/v1.0/reference#remove-an-event)
+
+```
+event.delete
+```
+
+### [Delete Multiple Events](https://developer.whenhub.com/v1.0/reference#delete-multiple-events)
+
+```
+schedule.events.delete(event_ids)
+```
+
+### [Add an image to a Schedule](https://developer.whenhub.com/v1.0/reference#add-an-image-to-a-schedule)
+
+```
+schedule.upload_image(url)
+```
+
+### [Add an image to an Event](https://developer.whenhub.com/v1.0/reference#add-an-image-to-an-event)
+
+```
+event.upload_image(url)
+```
+
 
 ## Development
 
