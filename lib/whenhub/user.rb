@@ -1,18 +1,11 @@
-require 'virtus'
+require 'active_model'
 
 module WhenHub
   class User
-    include Virtus.model
+    include ActiveModel::Model
 
-    attribute :displayName, String
-    attribute :photo, String
-    attribute :login, Time
-    attribute :twoFactor, Boolean
-    attribute :username, String
-    attribute :id, String
-    attribute :createdAt, Time
-    attribute :updatedAt, Time
-    attribute :schedulesFollowed, Array
+    attr_accessor :name, :displayName, :photo, :login, :twoFactor, :username,
+      :id, :createdAt, :updatedAt, :schedulesFollowed
 
     attr_accessor :client
 

@@ -1,22 +1,11 @@
-require 'virtus'
+require 'active_model'
 
 module WhenHub
   class Schedule
-    include Virtus.model
+    include ActiveModel::Model
 
-    attribute :calendar, Hash
-    attribute :name, String
-    attribute :description, String
-    attribute :curator, String
-    attribute :scope, String
-    attribute :viewCode, String
-    attribute :tags, Array
-    attribute :id, String
-    attribute :userId, String
-    attribute :createdAt, Time
-    attribute :updatedAt, Time
-    attribute :createdBy, String
-    attribute :updatedBy, String
+    attr_accessor :calendar, :name, :description, :curator, :scope, :viewCode,
+    :tags, :id, :userId, :createdAt, :updatedAt, :createdBy, :updatedBy
 
     attr_accessor :client
 
@@ -27,9 +16,11 @@ module WhenHub
     end
 
     def save
-      self.attributes = @client.post(
-        '/api/users/me/schedules',
-        writeable_attributes
+      assign_attributes(
+        @client.post(
+          '/api/users/me/schedules',
+          writeable_attributes
+        )
       )
     end
 
