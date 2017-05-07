@@ -1,0 +1,83 @@
+#!/usr/bin/env ruby
+
+require 'whenhub'
+
+client = WhenHub.client(access_token: ARGV.last)
+
+puts 'client.me'
+p client.me
+puts
+puts '------------'
+puts
+
+puts 'client.schedules.all'
+schedules = client.schedules.all
+p schedules
+puts
+puts '------------'
+puts
+
+puts 'client.schedules.find(schedule_id)'
+schedule_id = schedules.first.id
+schedule = client.schedules.find(schedule_id)
+p schedule
+puts
+puts '------------'
+puts
+
+puts 'client.schedules.find(schedule_id, media: true)'
+schedule = client.schedules.find(schedule_id, media: true)
+p schedule
+puts
+puts '------------'
+puts
+
+schedule = client.schedules.create(
+  name: 'Hello World',
+  description: 'Here is a test schedule I am trying to create',
+  scope: 'private'
+)
+p schedule
+puts
+puts '------------'
+puts
+
+puts 'schedule.events.create'
+event = schedule.events.create(
+  name: 'Cool Event',
+  description: 'Look at it go',
+  when: {
+    "period" => "minute",
+    "startDate" => "2017-05-07T22:00:00-04:00",
+    "endDate" => nil,
+    "startTimezone" => "America/New_York",
+    "endTimezone" => nil
+  }
+)
+p event
+puts
+puts '------------'
+puts
+
+puts 'schedule.events.all'
+p schedule.events.all
+puts
+puts '------------'
+puts
+
+puts 'event.delete'
+p event.delete
+puts
+puts '------------'
+puts
+
+client.schedules.all.each do |schedule|
+  p schedule.delete if schedule.name == 'Hello World'
+end
+
+__END__
+
+TODO:
+schedule.events.delete(event_ids)
+schedule.upload_image(url)
+event.upload_image(url)

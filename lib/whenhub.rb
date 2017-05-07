@@ -1,5 +1,8 @@
-require "whenhub/version"
+require 'whenhub/version'
+require 'whenhub/client'
 
 module WhenHub
-  # Your code goes here...
+  def self.client(access_token:)
+    WhenHub::Client.new(access_token: access_token)
+  end
 end

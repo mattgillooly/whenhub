@@ -23,6 +23,13 @@ Or install it yourself as:
 
 ## Usage
 
+The best guide for using this gem is the script in `bin/test`, which exercises all of the supported endpoints and prints the method outputs.
+You can use this script as a guide for invoking the gem, and you can run it against your live WhenHub account by running:
+
+```
+RESTCLIENT_LOG=stdout bundle exec bin/test [YOUR ACCESS TOKEN]
+```
+
 The gem uses a client model to query against the API. You create and configure a client with your access token.
 (Note: You can find your access token by visiting your [WhenHub account page](https://studio.whenhub.com/account).)
 
@@ -33,7 +40,7 @@ client = WhenHub::Client.new(access_token: YOUR_ACCESS_TOKEN)
 ```
 
 After creating the client you're able to make requests to any of the WhenHub APIs.
-
+Some examples follow below.
 
 ### [My User Information](https://developer.whenhub.com/v1.0/reference#users-me)
 
